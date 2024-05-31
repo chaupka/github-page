@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import { Box, Button, Typography } from '@mui/material';
 
 function App() {
 
@@ -16,16 +17,16 @@ function App() {
 
   if (!authenticated) {
     return (
-      <div>
-        <h2>Password Protected</h2>
+      <Box>
+        <Typography >Password Protected</Typography>
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter Password"
         />
-        <button onClick={checkPassword}>Submit</button>
-      </div>
+        <Button onClick={checkPassword}>Submit</Button>
+      </Box>
     );
   }
 
