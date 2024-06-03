@@ -1,42 +1,17 @@
-import { useState } from 'react';
 import './App.css';
-import { Box, Button, Typography } from '@mui/material';
+import Login from './Login/Login';
+import Page from './Page/Page';
+import { useLogin } from './hooks/useLogin';
 
-function App() {
+export default function App() {
+  const { isAuthenticated, checkPassword } = useLogin();
 
-  const [authenticated, setAuthenticated] = useState(false);
-  const [password, setPassword] = useState('');
-
-  const checkPassword = () => {
-    if (password === 'password') {
-      setAuthenticated(true);
-    } else {
-      alert('Incorrect password!');
-    }
-  };
-
-  if (!authenticated) {
-    return (
-      <Box>
-        <Typography >Password Protected</Typography>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter Password"
-        />
-        <Button onClick={checkPassword}>Submit</Button>
-      </Box>
-    );
+  if (!isAuthenticated) {
+    return <Login checkPassword={checkPassword} />
   }
 
   return (
-    <div>
-      <h1>Welcome to My React App</h1>
-      {/* Your actual app content */}
-    </div>
+    <Page />
   );
-
 }
 
-export default App;
