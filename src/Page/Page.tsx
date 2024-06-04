@@ -1,10 +1,36 @@
-import { Box, Typography } from "@mui/material";
+import { Paper, Stack, Typography } from "@mui/material";
 
 export default function Page() {
     return (
-        <Box>
-            <Typography variant="h2">Hochzeitszeug</Typography>
-            {/* Your actual app content */}
-        </Box>
+        <Stack display={'flex'} justifyContent={'center'} alignItems='center' minHeight="100vh">
+            <Paper variant='elevation'>
+                <Typography variant="h4">Hochzeitszeug</Typography>
+                {
+                    // Fotogalerie
+
+                    // Navigation (freeze header)
+
+                    // Einladung
+
+                    // Countdown
+
+                    // Fotoupload ????
+
+                    // Locations mit maps einbetten
+
+                    // Programm
+
+                    // Unterkünfte
+
+                    // Rückmeldung ????
+
+                    // Orga-Team
+
+                    // Geschenkwünsche (nur Geld)
+
+                    // Hochzeits-ABC
+                }
+            </Paper>
+        </Stack>
     )
 }
