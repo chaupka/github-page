@@ -1,36 +1,34 @@
-import { Paper, Stack, Typography } from "@mui/material";
+import { Box, Stack } from "@mui/material";
+import CountDown from "./Countdown";
+import Invitation from "./Invitation";
+import Locations from "./Locations";
+import Wishes from "./Wishes";
+import Program from "./Program";
+import Housing from "./Housing";
+import GuestConfirmation from "./GuestConfirmation";
+import OrgaTeam from "./OrgaTeam";
+import FAQ from "./FAQ";
 
 export default function Page() {
     return (
-        <Stack display={'flex'} justifyContent={'center'} alignItems='center' minHeight="100vh">
-            <Paper variant='elevation'>
-                <Typography variant="h4">Hochzeitszeug</Typography>
-                {
-                    // Fotogalerie
+        <Box>
+            {
+                // Fotogalerie
 
-                    // Navigation (freeze header)
+                // Navigation (freeze header)
+                <Stack display={'flex'} justifyContent={'center'} alignItems='center' minHeight="100vh" spacing={25}>
+                    <Invitation />
+                    <CountDown />
+                    <Locations />
+                    <Program />
+                    <Housing />
+                    <GuestConfirmation />
+                    <OrgaTeam />
+                    <Wishes />
+                    <FAQ />
+                </Stack>
 
-                    // Einladung
-
-                    // Countdown
-
-                    // Fotoupload ????
-
-                    // Locations mit maps einbetten
-
-                    // Programm
-
-                    // Unterkünfte
-
-                    // Rückmeldung ????
-
-                    // Orga-Team
-
-                    // Geschenkwünsche (nur Geld)
-
-                    // Hochzeits-ABC
-                }
-            </Paper>
-        </Stack>
+            }
+        </Box >
     )
 }

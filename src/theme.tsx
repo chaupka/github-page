@@ -16,7 +16,7 @@ export const theme = createTheme({
     },
     background: {
       default: '#d5a5a5',
-      paper: '#e3bfbf',
+      paper: '#e3bfbfcc',
     }
   },
   typography: { button: {fontWeight: 'bold'}},
