@@ -11,7 +11,7 @@ export const theme = createTheme({
       contrastText: 'red',
     },
     text: {
-      primary: '#2d1f1f',
+      primary: '#4c1501',
       secondary: '#0a22a9',
     },
     background: {
@@ -26,6 +26,19 @@ export const theme = createTheme({
         root: {
           padding: '20px',
           borderRadius: '16px',
+          textAlign: 'center',
+          '@media (max-width:600px)': {
+            width: '95%',  // 95% width on extra small screens
+          },
+          '@media (min-width:600px)': {
+            width: '75%',  // 75% width on small screens and up
+          },
+          '@media (min-width:960px)': {
+            width: '50%',  // 50% width on medium screens and up
+          },
+          '@media (min-width:1280px)': {
+            width: '33%',  // 33% width on large screens and up
+          },
         }
       }
     }
