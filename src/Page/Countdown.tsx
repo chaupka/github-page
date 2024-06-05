@@ -15,6 +15,7 @@ export default function CountDown() {
     const difference = weddingDate.diff(now)
     const lotrMovies = 726 * 60 * 1000
     const footballFieldRun = (2 * 105 + 2 * 68) * 5 * 60
+    const beerDrank = 365 * 24 * 60 * 60 * 1000 / 88
 
     const calcTimeLeft = () => {
         const timeLeft: TimeLeftProps = {
@@ -49,11 +50,11 @@ export default function CountDown() {
                     <Typography variant="h5">{timeLeft.days} {timeLeft.days === 1 ? 'Tag' : 'Tage'}, {timeLeft.hours} {timeLeft.hours === 1 ? 'Stunde' : 'Stunden'},</Typography>
                     <Typography variant="h5">{timeLeft.minutes} {timeLeft.minutes === 1 ? 'Minute' : 'Minuten'}, {timeLeft.seconds} {timeLeft.seconds === 1 ? 'Sekunde' : 'Sekunden'}</Typography>
                 </Stack>
-                <Typography color={'secondary'}>ODER</Typography>
+                <Typography color={'secondary'}>ODER NOCH...</Typography>
                 <Stack spacing={1} textAlign={'left'}>
-                    <Typography>- {calcWeirdTimeLeft(footballFieldRun)} Fußballfelder umlaufen</Typography>
+                    <Typography>- {calcWeirdTimeLeft(footballFieldRun)} Fußballfelder umlaufen (wenn ihr fit seid)</Typography>
                     <Typography>- {calcWeirdTimeLeft(lotrMovies)} x alle "Herr der Ringe" Filme schauen (Extended Edition)</Typography>
-                    <Typography>- 0 x in die Kirche gehen</Typography>
+                    <Typography>- {calcWeirdTimeLeft(beerDrank)} Liter Bier trinken (ø für Deutschland)</Typography>
                 </Stack>
             </Stack>
         </Paper>
