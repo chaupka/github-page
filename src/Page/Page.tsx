@@ -1,10 +1,11 @@
 import { Box, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
+import { RotatingLines } from "react-loader-spinner";
+import { theme } from "../theme";
 import CountDown from "./Countdown";
 import FAQ from "./FAQ";
 import GuestConfirmation from "./GuestConfirmation";
 import Housing from "./Housing";
-import Invitation from "./Invitation";
 import Locations from "./Locations";
 import OrgaTeam from "./OrgaTeam";
 import Program from "./Program";
@@ -37,23 +38,29 @@ export default function Page() {
         }
     };
 
+    useEffect(() => {
+        window.scroll(0, 0)
+    }, [isImagesLoaded])
+
     return (
         <Box>
-            {isImagesLoaded ?
-                <Stack display={'flex'} justifyContent={'center'} alignItems='center' minHeight="100vh" spacing={25}>
-                    <Slideshow urls={urls} />
-                    <Invitation />
-                    <CountDown />
-                    <Locations />
-                    <Program />
-                    <Housing />
-                    <GuestConfirmation />
-                    <OrgaTeam />
-                    <Wishes />
-                    <FAQ />
-                </Stack>
-                : <>Loading...</>
-            }
+            <Stack display={'flex'} justifyContent={'center'} alignItems='center' minHeight="100vh" spacing={25} margin={'20px 0px'}>
+                {isImagesLoaded ?
+                    <>
+                        {/* <Invitation /> */}
+                        <Slideshow urls={urls} />
+                        <CountDown />
+                        <Locations />
+                        <Program />
+                        <Housing />
+                        <GuestConfirmation />
+                        <OrgaTeam />
+                        <Wishes />
+                        <FAQ />
+                    </>
+                    : <RotatingLines strokeColor={theme.palette.primary.main} />}
+            </Stack>
+
             {images.map((img, index) => (
                 <ImageLoader key={index} src={img.url} onload={() => handleImageLoad(img)} />
             ))}
