@@ -17,7 +17,7 @@ export default function Slideshow(props: { urls: string[] }) {
                 <Typography variant="h4" fontWeight={'bold'}>Einladung</Typography>
                 <Typography variant="h5">Oh hi bitte kommt zur Hochzeit</Typography>
             </Stack>
-            <Carousel autoPlay={true} interval={5000} sx={{ width: '100%' }}>
+            <Carousel interval={5000} animation={'slide'} duration={500} sx={{ width: '100%' }}>
                 {
                     urls.map((url, index) => <GoogleImage key={index} url={url} index={index} />)
                 }

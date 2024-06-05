@@ -33,13 +33,14 @@ export default function Page() {
     const handleImageLoad = (img: { url: string, isLoaded: boolean }) => {
         img.isLoaded = true
         if (images.every(img => img.isLoaded === true)) {
-            console.log('setting true');
             setIsImagesLoaded(true)
         }
     };
 
     useEffect(() => {
         window.scroll(0, 0)
+        console.log('scrolling');
+        
     }, [isImagesLoaded])
 
     return (
