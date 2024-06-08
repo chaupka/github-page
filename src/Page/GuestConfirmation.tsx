@@ -34,8 +34,6 @@ export default function GuestConfirmation() {
     };
 
     const handleToggle = (e: React.ChangeEvent<HTMLInputElement>) => {
-        console.log(e.target);
-
         const { name, checked } = e.target;
         setFormData((prevData) => ({
             ...prevData,
@@ -85,8 +83,10 @@ export default function GuestConfirmation() {
                     component="form"
                     onSubmit={handleSubmit}
                 >
-                    <Typography variant="h6" >Finde deinen Namen in der Liste</Typography>
-                    <Typography >(oder den des Partners/ der Partnerin)</Typography>
+                    <Box>
+                        <Typography variant="h6" >Finde deinen Namen in der Liste</Typography>
+                        <Typography >(oder den des Partners/ der Partnerin)</Typography>
+                    </Box>
                     {!response && <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '300px', margin: 'auto', mt: 3 }}>
                         <TextField
                             label="Name"
