@@ -23,18 +23,12 @@ export default function GuestConfirmation() {
     const handleSubmit = async (e: any) => {
         e.preventDefault();
         try {
-            const res = await axios.post(process.env.REACT_APP_GOOGLE_SCRIPT_WEB_APP_URL!, formData, {
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    // 'Content-Type': 'text/plain;charset=utf-8',
-                },
-            });
+            const res = await axios.post(process.env.REACT_APP_GOOGLE_SCRIPT_WEB_APP_URL!, formData);
             setResponse(res.data);
         } catch (error) {
             console.error('Error submitting form:', error);
         }
     };
-
 
     return (
         <Paper variant="elevation">
