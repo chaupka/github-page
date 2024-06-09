@@ -4,11 +4,17 @@ import { useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { theme } from "../theme";
 
+type ChildrenProps = {
+    name: string,
+    age: number
+}
+
 type FormProps = {
     name: string,
     isComing: boolean,
     hasPartner: boolean,
-    children: number,
+    partnerName: string,
+    children: ChildrenProps[],
     message: string
 }
 
@@ -18,7 +24,8 @@ export default function GuestConfirmation() {
         name: '',
         isComing: false,
         hasPartner: false,
-        children: 0,
+        partnerName: '',
+        children: [],
         message: ''
     }
     const [formData, setFormData] = useState<FormProps>(initialFormData);
@@ -43,19 +50,57 @@ export default function GuestConfirmation() {
             setFormData((prevData) => ({
                 ...prevData,
                 hasPartner: false,
-                children: 0,
+                partnerName: '',
+                children: [],
+            }))
+        }
+        if (name === 'hasPartner') {
+            setFormData((prevData) => ({
+                ...prevData,
+                partnerName: '',
             }))
         }
     };
 
-    const handleChangeChildren: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
-        console.log(e.target);
-
+    const handleChangeChildrenNumber: React.ChangeEventHandler<HTMLSelectElement> = (e) => {
         const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: parseInt(value)
-        }));
+        const numberOfChildren = parseInt(value);
+        setFormData((prevData) => {
+            const newChildren = [...prevData.children];
+            newChildren.splice(numberOfChildren)
+            for (let i = 0; i < (numberOfChildren - prevData.children.length); i++) {
+                newChildren.push({ name: '', age: 0 })
+            }
+            return {
+                ...prevData,
+                [name]: newChildren
+            }
+        });
+    };
+
+    const handleChangeChildrenName = (e: any, index: number) => {
+        const { value } = e.target;
+        setFormData((prevData) => {
+            const newChildren = [...prevData.children];
+            newChildren[index].name = value;
+            return {
+                ...prevData,
+                children: newChildren
+            }
+        });
+    };
+
+    const handleChangeChildrenAge = (e: any, index: number) => {
+        const { value } = e.target;
+        const ageOfChild = parseInt(value);
+        setFormData((prevData) => {
+            const newChildren = [...prevData.children];
+            newChildren[index].age = ageOfChild;
+            return {
+                ...prevData,
+                children: newChildren
+            }
+        });
     };
 
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
@@ -75,88 +120,132 @@ export default function GuestConfirmation() {
 
     return (
         <Paper variant="elevation">
-            <Stack spacing={2}>
+            <Stack
+                spacing={2}
+                alignItems={"center"}
+                component="form"
+                onSubmit={handleSubmit}
+            >
                 <Typography variant="h4" fontWeight={'bold'}>Rückmeldung</Typography>
-                <Stack
-                    spacing={2}
-                    alignItems={"center"}
-                    component="form"
-                    onSubmit={handleSubmit}
-                >
-                    <Box>
-                        <Typography variant="h6" >Finde deinen Namen in der Liste</Typography>
-                        <Typography >(oder den des Partners/ der Partnerin)</Typography>
-                    </Box>
-                    {!response && <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '300px', margin: 'auto', mt: 3 }}>
-                        <TextField
-                            label="Name"
-                            variant="outlined"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChangeText}
-                            required
-                        />
-                        <Stack width={'600px'} spacing={1}>
+                {!response
+                    ? <>
+                        <Box>
+                            <Typography variant="h6" >Kommst du zur Feier?</Typography>
+                            <Typography variant="body2">(Du kannst uns natürlich auch so Bescheid geben, Carsten hatte einfach Bock darauf diese Form zu bauen.)</Typography>
+                        </Box>
+                        <Stack spacing={3} width={"100%"}>
+                            <TextField
+                                label="Name"
+                                variant="outlined"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChangeText}
+                                required
+                            />
                             <Box display={'flex'} flexDirection={'row'} alignItems={"center"}>
                                 <Typography>
-                                    Ich komme zur Feier
+                                    Jop, ich komme
                                 </Typography>
                                 <Switch name="isComing" value={formData.isComing} onChange={handleToggle} />
                             </Box>
                             {formData.isComing &&
                                 <>
-                                    <Box display={'flex'} flexDirection={'row'} alignItems={"center"}>
-                                        <Typography>
-                                            mit Partner(in)
-                                        </Typography>
-                                        <Switch name="hasPartner" value={formData.hasPartner} onChange={handleToggle} />
-                                    </Box>
-                                    <Box display={'flex'} flexDirection={'row'} alignItems={"center"}>
-                                        <Typography>
-                                            mit
-                                        </Typography>
-                                        <FormControl sx={{ width: '40px', padding: '0px', margin: '0px 7px' }}>
-                                            <NativeSelect
-                                                name="children"
-                                                value={formData.children}
-                                                onChange={handleChangeChildren}
-                                                variant="standard"
-                                            >
-                                                <option value={0}>0</option>
-                                                <option value={1}>1</option>
-                                                <option value={2}>2</option>
-                                            </NativeSelect>
-                                        </FormControl>
-                                        <Typography>
-                                            {formData.children === 1 ? 'Kind' : 'Kindern'}
-                                        </Typography>
-                                    </Box>
+                                    <Stack spacing={1}>
+                                        <Box display={'flex'} flexDirection={'row'} alignItems={"center"}>
+                                            <Typography>
+                                                mit Partner(in)
+                                            </Typography>
+                                            <Switch name="hasPartner" value={formData.hasPartner} onChange={handleToggle} />
+                                        </Box>
+                                        {formData.hasPartner &&
+                                            <TextField
+                                                label="Name"
+                                                variant="outlined"
+                                                name="partnerName"
+                                                value={formData.partnerName}
+                                                onChange={handleChangeText}
+                                                required />
+                                        }
+                                    </Stack>
+                                    <Stack spacing={1}>
+                                        <Box display={'flex'} flexDirection={'row'} alignItems={"center"}>
+                                            <Typography>
+                                                mit
+                                            </Typography>
+                                            <FormControl sx={{ width: '40px', padding: '0px', margin: '0px 7px 0px 10px' }}>
+                                                <NativeSelect
+                                                    name="children"
+                                                    value={formData.children.length}
+                                                    onChange={handleChangeChildrenNumber}
+                                                    variant="standard"
+                                                >
+                                                    {Array.from(Array(4).keys())
+                                                        .map((num, index) =>
+                                                            <option key={index} value={num}>{num}</option>)}
+                                                </NativeSelect>
+                                            </FormControl>
+                                            <Typography>
+                                                {formData.children.length === 1 ? 'Kind' : 'Kindern'}
+                                            </Typography>
+                                        </Box>
+                                        {formData.children.map((child, index) => (
+                                            <Box key={index} display={'flex'} flexDirection={'row'} alignItems={"center"}>
+                                                <TextField
+                                                    label={`Name Kind ${index + 1}`}
+                                                    variant="outlined"
+                                                    name="child.name"
+                                                    value={child.name}
+                                                    fullWidth
+                                                    onChange={(e) => handleChangeChildrenName(e, index)}
+                                                    required />
+                                                <FormControl sx={{ width: '50px', padding: '0px', margin: '0px 7px 0px 10px' }}>
+                                                    <NativeSelect
+                                                        name="children.age"
+                                                        value={child.age}
+                                                        onChange={(e) => handleChangeChildrenAge(e, index)}
+                                                        variant="standard"
+                                                    >
+                                                        {Array.from(Array(18).keys())
+                                                            .map((num, index) =>
+                                                                <option key={index} value={num}>{num}</option>)}
+                                                    </NativeSelect>
+                                                </FormControl>
+                                                <Typography width={'60px'} textAlign={'left'}>
+                                                    {child.age === 1 ? 'Jahr' : 'Jahre'}
+                                                </Typography>
+                                            </Box>
+                                        ))}
+                                    </Stack>
                                 </>
                             }
+                            <TextField
+                                label="Sonstiges"
+                                variant="outlined"
+                                name="message"
+                                multiline
+                                rows={4}
+                                value={formData.message}
+                                onChange={handleChangeText}
+                            />
+                            <Box>
+                                {isSending ? <RotatingLines strokeColor={theme.palette.primary.main} width="50px" /> :
+                                    <>
+                                        <Button
+                                            variant="contained"
+                                            color="primary" type="submit"
+                                            disabled={formData.name.length === 0 || (formData.hasPartner && formData.partnerName.length === 0) || formData.children.some((child => child.name.length === 0))}>
+                                            Absenden
+                                        </Button>
+                                    </>
+                                }
+                            </Box>
                         </Stack>
-                        <TextField
-                            label="Sonstiges"
-                            variant="outlined"
-                            name="message"
-                            multiline
-                            rows={4}
-                            value={formData.message}
-                            onChange={handleChangeText}
-                        />
-                    </Box>}
-                    <Box>
-                        {isSending ? <RotatingLines strokeColor={theme.palette.primary.main} width="50px" /> :
-                            <>
-                                <Button variant="contained" color="primary" type="submit" disabled={formData.name.length === 0}>Absenden</Button>
-                                {response && (
-                                    <Typography variant="body1" sx={{ mt: 2 }}>
-                                        {response === 'Data saved' ? 'Erfolgreich abgesendet!' : 'Fehler beim Senden.'}
-                                    </Typography>
-                                )}
-                            </>
-                        }
-                    </Box>
-                </Stack>
+                    </>
+                    : (
+                        <Typography color={'text.secondary'}>
+                            {response === 'Data saved' ? 'Erfolgreich abgesendet!' : 'Fehler beim Senden.'}
+                        </Typography>
+                    )}
             </Stack>
         </Paper>
     )
