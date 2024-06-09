@@ -1,6 +1,6 @@
 import { Box, Button, FormControl, NativeSelect, Paper, Stack, Switch, TextField, Typography } from "@mui/material";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { RotatingLines } from "react-loader-spinner";
 import { theme } from "../theme";
 
@@ -31,6 +31,7 @@ export default function GuestConfirmation() {
     const [formData, setFormData] = useState<FormProps>(initialFormData);
     const [isSending, setIsSending] = useState<boolean>(false)
     const [response, setResponse] = useState<string | null>(null);
+    const scrollToRef = useRef<HTMLInputElement>(null);
 
     const handleChangeText: React.ChangeEventHandler<HTMLInputElement | HTMLTextAreaElement> = (e) => {
         const { name, value } = e.target;
@@ -118,8 +119,14 @@ export default function GuestConfirmation() {
         }
     };
 
+    useEffect(() => {
+        if (response) {
+            scrollToRef.current?.scrollIntoView({behavior: "smooth"})
+        }
+    }, [response])
+
     return (
-        <Paper variant="elevation">
+        <Paper ref={scrollToRef} variant="elevation">
             <Stack
                 spacing={2}
                 alignItems={"center"}
