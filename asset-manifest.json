@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/chaupka/chaupka.github.io/public/static/css/main.ada9f46d.css",
-    "main.js": "/chaupka/chaupka.github.io/public/static/js/main.68e00fcf.js",
-    "static/js/453.7cef6fd9.chunk.js": "/chaupka/chaupka.github.io/public/static/js/453.7cef6fd9.chunk.js",
-    "static/media/source-sans-pro-regular.ttf": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-regular.45c54810910de71280ab.ttf",
-    "static/media/source-sans-pro-semibold.ttf": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-semibold.6ebea875df77b49da05b.ttf",
-    "static/media/source-sans-pro-semibolditalic.ttf": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-semibolditalic.522a9ee9b3b2ecbdd367.ttf",
-    "static/media/source-sans-pro-italic.ttf": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-italic.10a5cb40054505a4b3a9.ttf",
-    "static/media/source-sans-pro-semibold.woff": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-semibold.f11ba60ae1c65b37e616.woff",
-    "static/media/source-sans-pro-regular.woff": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-regular.d16535500d9438afb409.woff",
-    "static/media/source-sans-pro-semibolditalic.woff": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-semibolditalic.a43f56accdef4a0b01f0.woff",
-    "static/media/source-sans-pro-italic.woff": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-italic.983d97ca59e8e24e94c6.woff",
-    "static/media/source-sans-pro-semibold.eot": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-semibold.83db537e62224a779338.eot",
-    "static/media/source-sans-pro-regular.eot": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-regular.36443d248c8a75fde2a6.eot",
-    "static/media/source-sans-pro-italic.eot": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-italic.97e79d3e28a440c77195.eot",
-    "static/media/source-sans-pro-semibolditalic.eot": "/chaupka/chaupka.github.io/public/static/media/source-sans-pro-semibolditalic.fb03c6601ab6f48952c4.eot",
-    "index.html": "/chaupka/chaupka.github.io/public/index.html",
-    "main.ada9f46d.css.map": "/chaupka/chaupka.github.io/public/static/css/main.ada9f46d.css.map",
-    "main.68e00fcf.js.map": "/chaupka/chaupka.github.io/public/static/js/main.68e00fcf.js.map",
-    "453.7cef6fd9.chunk.js.map": "/chaupka/chaupka.github.io/public/static/js/453.7cef6fd9.chunk.js.map"
+    "main.css": "/chaupka/chaupka.github.io/static/css/main.481b1388.css",
+    "main.js": "/chaupka/chaupka.github.io/static/js/main.1f8f5b08.js",
+    "static/js/453.7cef6fd9.chunk.js": "/chaupka/chaupka.github.io/static/js/453.7cef6fd9.chunk.js",
+    "static/media/source-sans-pro-regular.ttf": "/chaupka/chaupka.github.io/static/media/source-sans-pro-regular.45c54810910de71280ab.ttf",
+    "static/media/source-sans-pro-semibold.ttf": "/chaupka/chaupka.github.io/static/media/source-sans-pro-semibold.6ebea875df77b49da05b.ttf",
+    "static/media/source-sans-pro-semibolditalic.ttf": "/chaupka/chaupka.github.io/static/media/source-sans-pro-semibolditalic.522a9ee9b3b2ecbdd367.ttf",
+    "static/media/source-sans-pro-italic.ttf": "/chaupka/chaupka.github.io/static/media/source-sans-pro-italic.10a5cb40054505a4b3a9.ttf",
+    "static/media/source-sans-pro-semibold.woff": "/chaupka/chaupka.github.io/static/media/source-sans-pro-semibold.f11ba60ae1c65b37e616.woff",
+    "static/media/source-sans-pro-regular.woff": "/chaupka/chaupka.github.io/static/media/source-sans-pro-regular.d16535500d9438afb409.woff",
+    "static/media/source-sans-pro-semibolditalic.woff": "/chaupka/chaupka.github.io/static/media/source-sans-pro-semibolditalic.a43f56accdef4a0b01f0.woff",
+    "static/media/source-sans-pro-italic.woff": "/chaupka/chaupka.github.io/static/media/source-sans-pro-italic.983d97ca59e8e24e94c6.woff",
+    "static/media/source-sans-pro-semibold.eot": "/chaupka/chaupka.github.io/static/media/source-sans-pro-semibold.83db537e62224a779338.eot",
+    "static/media/source-sans-pro-regular.eot": "/chaupka/chaupka.github.io/static/media/source-sans-pro-regular.36443d248c8a75fde2a6.eot",
+    "static/media/source-sans-pro-italic.eot": "/chaupka/chaupka.github.io/static/media/source-sans-pro-italic.97e79d3e28a440c77195.eot",
+    "static/media/source-sans-pro-semibolditalic.eot": "/chaupka/chaupka.github.io/static/media/source-sans-pro-semibolditalic.fb03c6601ab6f48952c4.eot",
+    "index.html": "/chaupka/chaupka.github.io/index.html",
+    "main.481b1388.css.map": "/chaupka/chaupka.github.io/static/css/main.481b1388.css.map",
+    "main.1f8f5b08.js.map": "/chaupka/chaupka.github.io/static/js/main.1f8f5b08.js.map",
+    "453.7cef6fd9.chunk.js.map": "/chaupka/chaupka.github.io/static/js/453.7cef6fd9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ada9f46d.css",
-    "static/js/main.68e00fcf.js"
+    "static/css/main.481b1388.css",
+    "static/js/main.1f8f5b08.js"
   ]
 }
