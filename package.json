@@ -1,6 +1,6 @@
 {
   "name": "chaupka.github.io",
-  "homepage": "https://github.com/chaupka/chaupka.github.io/public/index.html",
+  "homepage": "https://github.com/chaupka/chaupka.github.io/public",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
