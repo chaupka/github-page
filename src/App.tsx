@@ -6,9 +6,9 @@ import { useLogin } from './hooks/useLogin';
 export default function App() {
   const { isAuthenticated, isWrongPassword, checkPassword } = useLogin();
 
-  // if (!isAuthenticated) {
-  //   return <Login checkPassword={checkPassword} isWrongPassword={isWrongPassword} />
-  // }
+  if (!isAuthenticated) {
+    return <Login checkPassword={checkPassword} isWrongPassword={isWrongPassword} />
+  }
 
   return (
     <Presentation />
