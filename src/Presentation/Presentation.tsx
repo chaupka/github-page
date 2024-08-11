@@ -78,7 +78,7 @@ export default function Presentation() {
                     <ListItem className="fragment">- Neubau von Brücken und Überführungen</ListItem>
                 </List>
             </section>
-            <section>
+            <section data-auto-animate>
                 <h2>Herausforderungen</h2>
                 <List>
                     <ListItem className="fragment">- Erhaltungsaufwand aufgrund hoher Verkehrsbelastung</ListItem>
